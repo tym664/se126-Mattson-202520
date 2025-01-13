@@ -20,3 +20,9 @@ with open ("textFiles/simple.csv") as csvfile:
         total_records += 1 
         
     print (f"\nTOTAL RECORDS: {total_records}\n")
+
+        name = record [0]
+        number = record [1]
+        color = record [2] 
+        print (f"{name:10}\t
+               {number:3} \t {color}")
