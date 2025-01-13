@@ -1,0 +1,98 @@
+#Tyler Mattson 
+#Lab 1  PROGRAM THAT DETERMINES IF A ROOM IS IN VIOLATION OF FIRE REGULATIONS
+#Date: January 12 2024
+
+
+#VARIABLE DICTIONARY---------
+#additionalPeople -> Amount of additional people that can be added to the room
+#peopleToExclude -> Amount of people that need to be removed from the room
+#maxCap -> Maximun amount of people that can be in the room
+#attendees -> Amount of people attending the meeting
+#response -> Variable for entering anymore data            
+        
+#BASE PROGRAM CODE--------------------------------
+
+#VARIABLES
+additionalPeople = 0 
+peopleToExclude = 0
+maxCap = 0
+attendees = 0
+response = "y"
+
+def descision (response):
+    response = input("Would you like to check another room? (y/n): ").lower()
+
+    while response != "y" or response != "n":
+        
+        print("ERROR!")
+        
+        response = input ("Would you like to check another room? (y/n: ").lower()
+        
+    return
+
+def difference (maxCap, attendees):
+    
+    return maxCap - attendees 
+    
+
+print("\t\tWelcome to fire prevention saftey counsler")
+
+
+print ("\t\t------------------------------------------")
+print()
+       
+while response == "y":
+        maxCap - attendees <= 0
+        maxCap = int(input("\t\tEnter maximun room capacity"))
+        print ("\t\t-----------------------------------------------------------")
+        print()
+        attendees = int(input("\t\tEnter amount of people attending the meeting"))
+        print ("\t\t-----------------------------------------------------------")
+        print()
+        
+        if attendees <= maxCap:
+            additionalPeople = maxCap - attendees
+            print (f"\t\tMeeting can be legally held. You can add {additionalPeople} more people")
+            print("\t\t-----------------------------------------------------------")
+            print()
+
+        else:
+            peopleToExclude = attendees - maxCap
+            print (f"\t\tMeeting cannot be held legally. You need to remove {peopleToExclude} people")
+            print("\t\t--------------------------------------------------------")
+
+        response = input("\t\tWould you like to check another room? (y/n)").lower()
+        print("\t\t///////////////////////////////////////////////////////////")
+        print()
+
+        if response != "y":
+            print ("\t\tExiting Program")
+
+            
+                
+            
+           
+            
+        
+
+         
+        
+        
+            
+
+
+        
+           
+                
+
+         
+
+    
+       
+    
+    
+    
+    
+    
+            
+
