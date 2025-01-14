@@ -23,7 +23,7 @@ def again():
     #while loop trap - ensure user provides valid value before moving on. 
 
     while ans != "y" and ans != "n":
-        print("*****INVALID RESPONSE*****")
+        print("*****INVALID RESPONSE*****") 
         ans = input("\t\tWould you like to enter another temperature? [y/n]: ").lower()  
     
     return ans 
