@@ -55,10 +55,10 @@ with open("text files/classLab2.csv") as csvfile:
     #Count and display rooms that are over capacity 
 
 
-    if remaining < 0: #Can also be if remaning > max 
+        if remaining < 0: #Can also be if remaning > max 
 
-        roomsOver += 1 
-        print (f"{name:20}  {max:5}   {ppl:5}   {abs(remaining):5}") 
+            roomsOver += 1 
+            print (f"{name:20}  {max:5}   {ppl:5}   {abs(remaining):5}") 
 
 #Connecting to CSV file--------
 
