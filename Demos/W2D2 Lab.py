@@ -7,7 +7,7 @@
 #Program Prompt-------------------------
 
 #VARIABLE DICTIONARY--------------------
-#totalRecs -> 
+#totalRecs -> Total amount of information in the CSV file 
 #roomsOver -> Rooms that are over capacity 
 #ppl -> People number of people attending meeting in the room 
 # maxCap -> Maximun capacity each room can hold 
