@@ -10,7 +10,7 @@ total_records = 0 #the total number of records (rows) in the file
 #-----connected to file--------------------------------------------
 print(f"\n{'NAME':10} \t {'NUM':3} \t {'COLOR'}") #HEADER PRINT
 print("------------------------------------")
-with open("text_fileSimple.csv") as csvfile:
+with open("text files/text_fileSimple.csv") as csvfile:
     #indent 1 level! (new block)
 
     #allow processor to read the file data
