@@ -2,7 +2,7 @@
 #W2D2 Text File Handling review with filters [Lab2]
 #SE116 202502 (Morning Class)
 #Date: January 28 2025 
-#PROGRAM PROMPT: We will continue to work with the class_grades.csv file, as used in the W3D2 demo. We will practice connecting to a file, storing the file data into parallel lists, and creating new data for each student record based on these lists. We will then build a sequential search program which will allow us to find students in the file, and write data regarding them to a newly created file in our repository.
+#PROGRAM PROMPT: Squential search program. Program allows user to search data base for Students based on firs or last name, grade letter, grade num...
 
 #--IMPORTS---------------------------------------------------------
 import csv
@@ -55,11 +55,11 @@ for i in range(0, len(firstName)):
     let_avg.append(letter(a))
 
 #print field headers for display below
-print(f"{'FIRST':10}  {'LAST':10}  {'T1':3}  {'T2':3}  {'T3':3}  {'# AVG':6}  {'L AVG'}")
+print(f"{'FIRST':10}  {'LAST':10}  {'T1':3}  {'T2':3}  {'T3':3}  {'# AVG':6}  {'L AVG':<10}")
 print("-----------------------------------------------------------------------------")
 #processing through lists for display
 for i in range(0, len(firstName)):
-    print(f"{firstName[i]:10}  {lastName[i]:10}  {test1[i]:3}  {test2[i]:3}  {test3[i]:3}  {num_avg[i]:6.1f}  {let_avg[i]}")
+    print(f"{firstName[i]:10}  {lastName[i]:10}  {test1[i]:3}  {test2[i]:3}  {test3[i]:3}  {num_avg[i]:6.1f}  {let_avg[i]:<50}")
 print("-----------------------------------------------------------------------------")
 print(f"TOTAL STUDENTS IN FILE: {len(firstName)}")
 
@@ -71,10 +71,10 @@ answer = input("Would you like to start your search? [y/n]: ").lower()
 while answer == "y":
     #show user search menu 
     print("\t~Search Menu~")
-    print("1. Search by LAST name")         #one search value found
-    print("2. Search by LETTER grade")      #multiple search values found
+    print("1. Search by LAST name")         
+    print("2. Search by LETTER grade")      
     print("3. EXIT")
-    #gain search type 
+   
     search_type = input("Enter your search type [1-3]: ")
 
     #filter search options based on type
