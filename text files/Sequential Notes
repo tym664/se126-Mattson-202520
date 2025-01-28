@@ -1,0 +1,38 @@
+#SEQUENTIAL SEARCH-------------------------------------------------------------------
+#sequential search: to search for an item by comparing it to all items found within a collection (list)
+#        Searchnig Steps:
+#        1. Set Up & Gaining Search Item from user
+#        2. Perform the searching algorithm
+#        3. Filter and display results: tell user if the item is found or not; if found, display required data
+
+
+'''
+A simple overview of sequential search:
+
+#step 1: set up and gain search
+found = -1 #we are using -1 because it is not a valid index location (technically); you could also use found = "x"
+
+search = input("What are you searching for? ")
+
+#step 2: perform the searching algorithm
+for i in range(0, len(listYouAreSearchingThrough)):
+
+    if search == listYouAreSearchingThrough[i]: 
+        found = i #found drops its original value (-1 or "x") and is replaced with the current index location
+        #since this occurs in the if statement, it will only happen IF what we are looking for matches one of the values on the list we are searching through
+
+#step 3: check and display your results
+if found != -1: #(or "x" if that was your initial value
+    #found has changed, meaning at some point it checked into the if statement within our searching for loop
+    
+    print(f"Your search for {search} has been FOUND!")
+    #display relevant data/results here using 'found' as your index representer 
+    print(f"{listYouAreSearchingThrough[found]}")
+    
+else:
+    #found is still its initial value, meaning we did not find the data the user was looking for
+    #tell the user their search came up empty
+    print(f"Your search for {search} has NOT BEEN FOUND!")
+
+'''
+*** THIS FILE REFRENCES W4D1 SEQUENTIAL SEARCH PYTHON PROGRAM ***
