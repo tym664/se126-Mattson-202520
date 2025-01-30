@@ -62,11 +62,9 @@ else:
         print(f"{dragons[found[i]]:15} {riders[found[i]]:30} {count[found[i]]:3} {color1[found[i]]:8} {color2[found[i]]:8}")   
 
  
-file = open(Demos\)
-            
-for i in range(0, len(dragons)): 
-    file.write(f"{dragons[i]}, {riders[i]}\n") 
+file = open('text files/targs.csv', 'w')
 
-        
+for i in range(0, len(dragons)):
+    file.write(f"{dragons[i]},{riders[i]}\n")
 
-
+file.close()
