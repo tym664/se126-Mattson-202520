@@ -22,7 +22,6 @@ phoneExt = []
 screenName = [] 
 
 
-
 #Opening CSV file
 with open("text files/got_emails.csv") as csvfile:
     
@@ -38,10 +37,10 @@ with open("text files/got_emails.csv") as csvfile:
         phoneExt.append (record[4]) 
         department.append (record[3])
         if record [3] == 'HOUSE STARK': 
-            department.append ("Research & Development")
-            phoneExt.append (int('100,199'))
+            department = 'Research & Development'
+            phoneExt = (int('100,199'))
         elif record [3] == 'House Taragaryen':
-            department.append ("Marketing")
+            department = 'Marketing'
 
 
 
