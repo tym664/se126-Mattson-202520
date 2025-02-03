@@ -43,14 +43,9 @@ with open("text files/got_emails.csv") as csvfile:
         elif record [3] == 'House Taragaryen':
             department.append ("Marketing")
 
-        
 
 
        
-
-
-        
-
 #Headers for data placement
 print()
 print(f"{'FIRST':8} {'LAST':>12} {'DEPARTMENT':>18} {'EMAIL':>20} {'EXT':>14}")
