@@ -24,6 +24,7 @@ with open ("text files/dragons.csv") as csvfile:
 
         else: 
             color2.append("ERROR")    #.append requires an argument value, cannot leave nothing inside ()  
+            
     print(f"{'DRAGONS':15} {'RIDERS':30} {'COUNT':3} {'COLOR1':8} {'COLOR2':8}") 
     print("=" *70)
 
