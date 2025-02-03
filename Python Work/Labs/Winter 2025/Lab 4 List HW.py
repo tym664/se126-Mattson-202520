@@ -5,9 +5,22 @@
 
 
 #VARIABLE DICTIONARY
-#===============================
-
-#===============================
+#===============================================================================
+#firstName = Employees first name
+#lastName = Employees last name 
+#emails = Employees emails 
+#department = Which department each employee works at 
+#phoneExt = Employees unique phone extension 
+#screenName = Employees screen names for their emails 
+#depNum = Variable assigned to each employee to give them their phone extensions 
+#totalRecords = How many records were processed in the file 
+#totalStark = Total number of employees within House Stark 
+#totalTarg = Total number of employees within House Targaryen 
+#totalTully = Total number of employees within House Tully
+#totalLann = Total number of employees within House Lannister
+#totalBara = Total number of employees within House Baratheon
+#otalNight = Total number of employees within The Night’s Watch
+#===============================================================================
 
 
 #Importing CSV libary
@@ -20,6 +33,16 @@ emails = []
 department = []
 phoneExt = [] 
 screenName = [] 
+depNum = 0
+totalRecords = 0
+totalStark = 0 
+totalTarg = 0 
+totalTully = 0 
+totalLann = 0 
+totalBara = 0 
+totalNight = 0 
+
+
 
 
 #Opening CSV file
@@ -30,64 +53,88 @@ with open("text files/got_emails.csv") as csvfile:
     
     for record in file: 
 
-        email = (f"{screenName}@westeros.net")
+        totalRecords += 1 #Keeps track of each record being processed, adds total when new file is created 
+
         firstName.append (record[0])
         lastName.append (record[1])
-        emails.append (str(record[2])) 
-        phoneExt.append (record[4]) 
-        department.append (record[3])
-        if record [3] == 'HOUSE STARK': 
-            department = 'Research & Development'
-            phoneExt = (int('100,199'))
-        elif record [3] == 'House Taragaryen':
-            department = 'Marketing'
+        screenName.append (record[3])
+        emails.append (str(record[3] + "@westeros.net")) #adds emails extension to employees screen names
 
+#Conditional statements to determine which house is connected to which department 
+        if (record[4]) == 'House Stark': 
+            department.append ('Research & Development')
+            phoneExt.append (int(100+depNum)) #Creates unique phone extension for each employee 
+            totalStark += 1 
 
-
+        elif (record[4]) == 'House Targaryen': 
+            department.append ('Marketing') #Determines which department each employee belongs too 
+            phoneExt.append (int(200+depNum)) 
+            totalTarg += 1  #Each variable keeps track of their respective house, adds total number of employees of each house in new file 
+            
+        elif (record[4]) == 'House Tully':
+            department.append ('Human Resources') 
+            phoneExt.append (int(300+depNum))
+            totalTully += 1 
+            
+        elif (record[4]) == 'House Lannister':
+            department.append ('Accounting') 
+            phoneExt.append (int(400+depNum))
+            totalLann += 1 
+            
+        elif (record[4]) == 'House Baratheon':
+            department.append ('Sales') 
+            phoneExt.append (int(500+depNum))
+            totalBara += 1  
+             
+        else: 
+            (record[4]) == 'The Night’s Watch'
+            department.append ('Auditing') 
+            phoneExt.append (int(600+depNum))
+            totalNight += 1  
+             
+        depNum += 1  #depNum is to randomly assign each employee with a number for their phone extension 
        
+
 #Headers for data placement
 print()
-print(f"{'FIRST':8} {'LAST':>12} {'DEPARTMENT':>18} {'EMAIL':>20} {'EXT':>14}")
-print("=" *130)
-        
+print ("\t\t\t\t\tEmployee data")
 
+print("=" * 130)
+print(f"{'FIRST':8} {'LAST':>11} {'EMAIL':>23} {'DEPARTMENT':>37} {'PhoneEXT':>25}") #Header 
+print("-" * 130)
     
 for i in range(0, len (firstName)):
     
-    
-    print(f"{firstName[i]:15} {lastName[i]:20} {department[i]:15} {emails[i]:8}") 
 
-found = "x"
-search = input("Who would you like to find?:") 
+    print(f"{firstName[i]:15} {lastName[i]:15} {emails[i]:35} {department[i]:25}  {phoneExt[i]:10}")
 
-for i in range(0, len (firstName)): 
-    if search.lower() in firstName[i].lower(): 
-        found = i 
-    
-if found != "x":
-    print (f"Your search for {search} was found. ")
-    print(f"{firstName[found]:15} {lastName[found]:20}{department[found]:>25}")
+print("=" * 130)
+print()
 
-else: 
-    print(f"Your search for {search} was not found.")
+#CREATING FILE ====================================================================================================================================================
 
-
-found = [] 
-search = input("Who would you like to find?:") 
-
-file = open('text files/Westeros.csv', 'w')
+file = open('text files/Westeros.csv', 'w') #Creates new file 
 
 for i in range(0, len (firstName)): 
 
-    file.write(f"{firstName[i]}, {department[i]}\n")
+    file.write(f"{firstName[i]}, {lastName[i]}, {emails[i]},  {department[i]}, {phoneExt[i]}\n") #Writes lists to new file 
 
-file.close() 
+#Data formatting within the created csv file 
+file.write ("="*80)    
+file.write (f"\n\t\t\tTotal Number of employees: {totalRecords}") 
+file.write (f"\n\t\t\tTotal Number of employees in House Stark: {totalStark}") 
+file.write (f"\n\t\t\tTotal Number of employees in House Targaryen: {totalTarg}") 
+file.write (f"\n\t\t\tTotal Number of employees in House Tully: {totalTully}") 
+file.write (f"\n\t\t\tTotal Number of employees in House Lannister: {totalLann}") 
+file.write (f"\n\t\t\tTotal Number of employees in House Baratheon: {totalBara}") 
+file.write (f"\n\t\t\tTotal Number of employees in The Nights Watch: {totalNight}") 
+file.write ("\n================================================================================")
 
-    
+file.close()  #Closes file 
 
-        
-
-
-
-    
-    
+print ("\t\t**User has created file. Check for file name 'Westeros.csv' for employee information**") #Alerting the user they created a new file
+print()
+print ("\t\t\t\t\tProgram is finised.")
+print()
+print("-" * 130)  
+print()
