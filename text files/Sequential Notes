@@ -6,8 +6,8 @@
 #        3. Filter and display results: tell user if the item is found or not; if found, display required data
 
 
-'''
-A simple overview of sequential search:
+
+#A simple overview of sequential search:
 
 #step 1: set up and gain search
 found = -1 #we are using -1 because it is not a valid index location (technically); you could also use found = "x"
@@ -34,5 +34,5 @@ else:
     #tell the user their search came up empty
     print(f"Your search for {search} has NOT BEEN FOUND!")
 
-'''
-*** THIS FILE REFRENCES W4D2 SEQUENTIAL SEARCH PYTHON PROGRAM ***
+
+#*** THIS FILE REFRENCES W4D2 SEQUENTIAL SEARCH PYTHON PROGRAM ***
