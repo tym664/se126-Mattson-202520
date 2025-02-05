@@ -127,7 +127,6 @@ while answer == 'y':
     else:
         print("\t!INVALID ENTRY!")
     
-    
     if search_type == "1" or search_type == "2":
        
         answer = input("Would you like to search again? [y/n]: ").lower()
