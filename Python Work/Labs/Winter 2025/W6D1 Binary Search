@@ -1,0 +1,90 @@
+import csv 
+
+libraryNum = []
+title = [] 
+author = [] 
+genres = [] 
+pg = [] 
+
+
+with open("text files/library_books.csv") as csvfile:
+    file = csv.reader(csvfile)
+
+    for rec in file: 
+
+
+        libraryNum.append (rec[0])
+        title.append (rec[1])
+        author.append (rec[2])
+        genres.append (rec[3])
+        pg.append (rec[4]) 
+
+
+print(f"{'LIB#':5} {'TITLE':25} {'AUTHOR':15} {'GENRE':20}  {'PAGES':5}")
+print ("=" * 80)
+
+for i in range (0, len(libraryNum)):
+    print(f"{libraryNum[i]:5} {title[i]:25} {author[i]:15} {genres[i]:20} {pg[i]:5}")
+
+found = []
+searchNum = input("Which Library Number are you looking for?")
+seqCount = 0  # Counts search iterations  
+
+for i in range (0, len(libraryNum)):
+
+    if searchNum.lower() == libraryNum[i]: 
+        found.append(i)
+
+
+if not found: 
+    print(f"Sorry, your search for {searchNum} was NOT FOUND")
+
+
+else:
+    print(f"Your search for {searchNum} was FOUND") 
+
+    print(f"{'LIB#':5} {'TITLE':25} {'AUTHOR':15} {'GENRE':20}  {'PAGES':5}")
+    print ("=" * 80)    
+
+
+    for i in range (0, len(found)): 
+
+        print(f"{libraryNum[found[i]]:5} {title[found[i]]:25} {author[found[i]]:15} {genres[found[i]]:20} {pg[found[i]]:5}")
+
+
+    print ("=" * 80)    
+
+
+#BINARY SEARCH
+
+
+min = 0 
+max = len(libraryNum) -1 
+mid = int(( min + max ) / 2) 
+
+binCount = 0 # Counts search iterations 
+
+while min < max and searchNum != libraryNum[mid]: 
+
+    if searchNum < libraryNum[mid]:
+
+        max = mid -1 
+    else: 
+    
+        min = mid +1 
+
+    mid = int((min + max ) / 2 )
+
+    binCount += 1 
+
+print(f" BINARY SEARCH ITERATIONS: {binCount} ")
+
+if searchNum == libraryNum[mid]: 
+    
+    print(f"{'LIB#':5} {'TITLE':25} {'AUTHOR':15} {'GENRE':20}  {'PAGES':5}")
+    print ("=" * 80)    
+    print(f"{libraryNum[mid]:5} {title[mid]:25} {author[mid]:15} {genres[mid]:20} {pg[mid]:5}")
+    print ("=" * 80)    
+
+
+
