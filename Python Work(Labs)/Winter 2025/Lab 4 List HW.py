@@ -3,7 +3,6 @@
 #Section: SE126 - 202502 (Morning Class) 
 #Date: Febuary 3rd 2025
 
-
 #VARIABLE DICTIONARY
 #===============================================================================
 #firstName = Employees first name
@@ -21,7 +20,6 @@
 #totalBara = Total number of employees within House Baratheon
 #otalNight = Total number of employees within The Night’s Watch
 #===============================================================================
-
 
 #Importing CSV libary
 import csv
@@ -41,9 +39,6 @@ totalTully = 0
 totalLann = 0 
 totalBara = 0 
 totalNight = 0 
-
-
-
 
 #Opening CSV file
 with open("text files/got_emails.csv") as csvfile:
@@ -94,7 +89,6 @@ with open("text files/got_emails.csv") as csvfile:
              
         depNum += 1  #depNum is to randomly assign each employee with a number for their phone extension 
        
-
 #Headers for data placement
 print()
 print ("\t\t\t\t\tEmployee data")
@@ -104,7 +98,6 @@ print(f"{'FIRST':8} {'LAST':>11} {'EMAIL':>23} {'DEPARTMENT':>37} {'PhoneEXT':>2
 print("-" * 130)
     
 for i in range(0, len (firstName)):
-    
 
     print(f"{firstName[i]:15} {lastName[i]:15} {emails[i]:35} {department[i]:25}  {phoneExt[i]:10}")
 
