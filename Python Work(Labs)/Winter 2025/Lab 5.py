@@ -66,6 +66,7 @@ def bubbleSearch():
         for b in range(0,len(libraryNum) - a - 1):
             if libraryNum[b] > libraryNum[b + 1]:
                 swap (b, b + 1)
+                
 
 #Function for binary search algo 
 def binarySearch(searchInput, foundList): 
@@ -129,7 +130,7 @@ if ans == "y": #Direct loop based on user input
 
     while searchType != "7":
         print()
-        print("\t\t\t\t\t****Persoal Library Menu****")
+        print("\t\t\t\t\t****Personal Library Menu****")
         print() 
         print("\t\t\t\t\t1. Search by TITLE")
         print("\t\t\t\t\t2. Search by AUTHOR") 
@@ -185,7 +186,7 @@ if ans == "y": #Direct loop based on user input
                 display("x" , foundList, len(foundList))
             else:
                 print("\t\t\t\tNo record found.")
-    
+        
         if searchType == "5": #Displays all items listed with Available 
             searchQuery = "Available"
             sequentialSearch(status, searchQuery, foundList)
