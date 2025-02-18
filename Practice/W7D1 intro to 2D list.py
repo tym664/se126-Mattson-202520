@@ -22,7 +22,7 @@ for i in range(len(two_d_list)):
     
 fileData = []
 
-with open("text_files/book_list.csv") as csvfile:
+with open("text files/book_list.csv") as csvfile:
     file = csv.reader(csvfile)
     for rec in file:
         fileData.append(rec)

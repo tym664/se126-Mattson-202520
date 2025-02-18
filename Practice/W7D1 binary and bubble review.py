@@ -66,7 +66,7 @@ genres =[]
 pages = []
 status = []
 
-with open("text_files/book_list.csv") as csvfile:
+with open("text files/book_list.csv") as csvfile:
     file = csv.reader(csvfile)
     for rec in file:
         libNums.append(int(rec[0]))

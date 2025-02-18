@@ -39,12 +39,12 @@ def display(x, foundList, records):
         print(f"{libraryNum[x]:8}  {title[x]:35}  {author[x]:20}  {genre[x]:20}  {pgCount[x]:10} {status[x]:10}")
 
     elif foundList:
-        #
+        
         for i in range(0, records):
             print(f"{libraryNum[foundList[i]]:8}  {title[foundList[i]]:35} {author[foundList[i]]:20} {genre[foundList[i]]:20}  {pgCount[foundList[i]]:10} {status[foundList[i]]:10}") 
     
     else:
-        
+
         for i in range(0, records):
             print(f"{libraryNum[i]:8}  {title[i]:35} {author[i]:20}  {genre[i]:20}  {pgCount[i]:10} {status[i]:10}")
 
@@ -111,7 +111,9 @@ with open("text files/book_list.csv") as csvfile:
         pgCount.append (record[4])
         status.append (record[5]) 
 
-print ("=" * 80)
+print()
+print ("=" * 115)
+print()
 
 display ("x", [], len(libraryNum))
 
