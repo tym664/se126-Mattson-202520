@@ -22,13 +22,20 @@
 #ans = Users answer to enter or exit loop 
 #===============================================================================
 
+#DESCRIPTION
+#===============================================================================================================================================
+#This program is to help users search for a book within the "Librarys" records. The user can input any letter of the authors name, genre, 
+# or title of the book. The user can also see all of the books Available or on Loan within the provided search menu. I attempted to create 
+# a function for all the search methods and then have those functions be called when the user inputs their desired search in the search menu
+#===============================================================================================================================================
+
 #Importing CSV libary to handle
 import csv 
-
 
 #Function
 
 def display(x, foundList, records):
+    bubbleSearch() #Adding bubble search displays lib nums in order 
     print("\t\t\t\t\tWelcome to Book Finder")
     print()
     print(f"{'LIB #':8}  {'TITLE':37}  {'AUTHOR':18}  {'GENRE':19} {'Pg AMT':11} {'Loan Status':10}")
@@ -67,7 +74,6 @@ def bubbleSearch():
             if libraryNum[b] > libraryNum[b + 1]:
                 swap (b, b + 1)
                 
-
 #Function for binary search algo 
 def binarySearch(searchInput, foundList): 
     min = 0 
@@ -88,7 +94,6 @@ def sequentialSearch(listSearch, searchQurey, foundList):
     for i in range(len(listSearch)): 
         if searchQurey.lower() in listSearch[i].lower():
             foundList.append(i)
-
 
 #Empty Lists for storing data 
 libraryNum = [] 
@@ -122,7 +127,7 @@ ans = input("\t\t\t\tWould you like to enter the search program? [y/n]").lower()
 print()
 
 while ans != "y" and ans != "n": #This loop makes sure the user inputs the correct information into the program
-    print("\t\t\t\t***INVALID ENTRY!***")
+    print("\t\t\t\t\t***INVALID ENTRY!***")
     print()
     ans = input("\t\t\t\tWould you like to enter the search program? [y/n]").lower() #loops user untill correct information is given to the program
 
@@ -144,13 +149,18 @@ if ans == "y": #Direct loop based on user input
         print()
         print ("=" * 115 )
 
+        print()
         searchType =  input("\t\t\t\tHow would you like to search? [1-7]: ") 
         print()
 
         foundList = [] #Empty list to store found data 
 
         if searchType not in ["1", "2", "3", "4", "5", "6", "7"]:
-             print("\t\t\t\t***INVALID ENTRY!***\nPlease try again") #Error check that forces user to input correct information
+             print("\t\t\t\t\t***INVALID ENTRY!***")#Error check that forces user to input correct information
+             print()
+             print("\t\t\t\t\tPlease try again")
+             print()
+             print("=" * 115)
 
         if searchType == "1": #Sequential search function to find the title 
             searchQuery = input("\t\t\t\tEnter the TITLE:")
@@ -182,7 +192,7 @@ if ans == "y": #Direct loop based on user input
         if searchType == "4": #Binary and bubble sort function to find the library number 
             searchInput = input("\t\t\t\tEnter LIBRARY NUMBER:")
             print()
-            bubbleSearch()
+            bubbleSearch() #Adding bubble search displays lib nums in order 
             binarySearch(searchInput, foundList)
             if foundList: 
                 display("x" , foundList, len(foundList))
@@ -191,6 +201,7 @@ if ans == "y": #Direct loop based on user input
         
         if searchType == "5": #Displays all items listed with Available 
             searchQuery = "Available"
+            bubbleSearch()
             sequentialSearch(status, searchQuery, foundList)
             if foundList:
                 display("x", foundList, len(foundList))
@@ -199,6 +210,7 @@ if ans == "y": #Direct loop based on user input
 
         if searchType == "6": #Displays all items listed with On loan 
             searchQuery = "On loan"
+            bubbleSearch() #Adding bubble search displays lib nums in order 
             sequentialSearch(status, searchQuery, foundList)
             if foundList:
                 display("x", foundList, len(foundList))

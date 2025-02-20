@@ -5,37 +5,26 @@
 
 import random 
 
-suits = [ 'Hearts', 'Diamonds', 'Clubs', 'Spades']
-ranks = ['2', '3' , '4' , '5' , '6' ,'7', '8', '9', '10', 'Jack' , 'King' , 'Queen', 'Ace'  ]
-values = ['2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'Jack':10, 'Queen':10, 'King':10, 'Ace':11 ] 
 
-def createDeck(): 
-    deck = [] 
-    for suit in suits:
-        for rank in ranks:
-            deck.append((rank, suit))
-    random.shuffle(deck)
-    return deck 
+def createDeck():
+    suits = [ 'Hearts', 'Diamonds', 'Clubs', 'Spades']
+    values = ['2', '3' , '4' , '5' , '6' ,'7', '8', '9', '10', 'Jack' , 'King' , 'Queen', 'Ace' ]
+    deck = [(value, suit) for value in values for suit in suits ] 
 
-def calchandValue(hand): 
-    value = 0 
-    ace = 0 
-    for card in hand: 
-        value += values[card[0]]
-        if card[0] == 'Ace': 
-            ace += 1 
-    while value > 21 and ace: 
-        value -= 10 
-        ace -= 1 
-    return value 
+def cardValue(card): 
+    value = card[0]
+    if value in ['Jack', 'King', 'Queen']:
+        return 10 
+    elif value == 'Ace': 
+        return 11
+    else: 
+        return int(value)
+    
 
-def dealfirstCard(deck): 
-    playerHand = [deck.pop(), deck.pop()] 
-    dealerHand = [deck.pop(), deck.pop()]
-    return playerHand, dealerHand 
 
-def listCard(hand,deck):
-    hand.append(deck.pop())
+
+
+
 
        
     
