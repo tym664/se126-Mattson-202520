@@ -1,5 +1,5 @@
 #Tyler Mattson 
-#Lab 5 Collection & Logic 
+#Lab 6 Collection & Logic 
 #Section: SE126 - 202502 (Morning Class) 
 #Date: Febuary 22th 2025
 
