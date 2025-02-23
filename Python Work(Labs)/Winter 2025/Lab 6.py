@@ -69,12 +69,12 @@ def seatDisplay(): #This function creates a display for the user to see
 
 def userContinue(): # This function asks the user if they want to contiune reserving seats 
     print()
-    choice = input("\t\t\t\tDo you wish to contiune?").lower()
+    choice = input("\t\t\t\tDo you wish to contiune?").upper()
     print()
-    if choice == 'y': #User choice 
-        return 'y'
-    elif choice == 'n': #User choice 
-        return 'n'
+    if choice == 'Y': #User choice 
+        return 'Y'
+    elif choice == 'N': #User choice 
+        return 'N'
     else: 
         print()
         print("\t\t\t\tINVALID INPUT") 
