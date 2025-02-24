@@ -82,13 +82,9 @@ while ans == "y":
             for j in range(len(colors)-1): 
                 if colors[j] > colors [j + i]: 
                     
-
-
-
-
     else: 
         print("\t\t\t\tEXIT")
+        print("\t\t\t\tPROGRAM HAS FINISHED, THANK YOU.") 
 
-print("\t\t\t\tPROGRAM HAS FINISHED, THANK YOU.") 
 
-
+                                                

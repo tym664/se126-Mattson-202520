@@ -1,7 +1,7 @@
 #Tyler Mattson 
 #Lab 6 Collection & Logic 
 #Section: SE126 - 202502 (Morning Class) 
-#Date: Febuary 22th 2025
+#Date: Febuary 24th 2025
 
 #VARIABLE DICTIONARY
 #======================================================================================================
@@ -69,12 +69,12 @@ def seatDisplay(): #This function creates a display for the user to see
 
 def userContinue(): # This function asks the user if they want to contiune reserving seats 
     print()
-    choice = input("\t\t\t\tDo you wish to contiune?").upper()
+    choice = input("\t\t\tDo you wish to contiune?").lower()
     print()
-    if choice == 'Y': #User choice 
-        return 'Y'
-    elif choice == 'N': #User choice 
-        return 'N'
+    if choice == 'y': #User choice 
+        return 'y'
+    elif choice == 'n': #User choice 
+        return 'n'
     else: 
         print()
         print("\t\t\t\tINVALID INPUT") 
@@ -86,7 +86,7 @@ def userContinue(): # This function asks the user if they want to contiune reser
 
 def seatReserve(): #This function asks what seat the users whats to reserve 
     print()
-    seat = input("\t\tEnter the seat you want to reserve (Ex. 1A, 2B etc..)").upper()
+    seat = input("\tEnter the seat you want to reserve (Ex. 1A, 2B etc..)").upper()
     print()
 
     if len(seat) <2: #Checks amount of characters of user input 
@@ -103,55 +103,64 @@ def seatReserve(): #This function asks what seat the users whats to reserve
     row = int(row) #Converts row into integer for processing 
         
     if row < 1 or row > 7 or seatLetter not in ['A' , 'B' , 'C' , 'D']: 
-        print ("INVALID INPUT") #Error check to make sure program gets correct data from user 
+        print ("\t\t\t\tINVALID INPUT") #Error check to make sure program gets correct data from user 
         #Makes sure user enters correct number and letter into program 
         return 'invaild' #Prints invalid to notifiy the user that their input was not accepted 
     
  #Conditional statements that check if the seat is already taken 
  #If seat is taken, the list will be updated with an X in place of whatever the user chose 
-    if seatLetter == 'A' and firstRow[row - 1] == 'X': 
-        print (f"\t\tSeat {seat} is already taken. Please choice another seat. ")
+    if seatLetter == 'A' and firstRow[row - 1] == 'X': #Calculates the index in the array. -1 handles the zero based indexing 
+        print (f"\tSeat {seat} is already taken. Please choice another seat. ")
+        print ("=" * 80)
         return 'taken' #Prints taken to notify the user that the seat they entered was taken
+        
 
-    elif seatLetter == 'B' and secondRow[row - 1] == 'X': 
-        print (f"\t\tSeat {seat} is already taken. Please choice another seat. ")
+    elif seatLetter == 'B' and secondRow[row - 1] == 'X': #Calculates the index in the array. -1 handles the zero based indexing 
+        print (f"\tSeat {seat} is already taken. Please choice another seat. ")
+        print ("=" * 80)
         return 'taken'
 
-    elif seatLetter == 'C' and thirdRow[row - 1] == 'X': 
-        print (f"\t\tSeat {seat} is already taken. Please choice another seat. ")
+    elif seatLetter == 'C' and thirdRow[row - 1] == 'X': #Calculates the index in the array. -1 handles the zero based indexing 
+        print (f"\tSeat {seat} is already taken. Please choice another seat. ")
+        print ("=" * 80)
         return 'taken'
 
-    elif seatLetter == 'D' and fourthRow[row - 1] == 'X': 
-        print (f"\t\tSeat {seat} is already taken. Please choice another seat. ")
+    elif seatLetter == 'D' and fourthRow[row - 1] == 'X': #Calculates the index in the array. -1 handles the zero based indexing 
+        print (f"\tSeat {seat} is already taken. Please choice another seat. ")
+        print ("=" * 80)
         return 'taken'
     
 #Conditonal statements that allow the user to reserve a free seat 
 #If the seat is taken, the program will prompt the user that seat is already reserved 
     if seatLetter == 'A': #Checks if variable is equal to the letter 
-        firstRow[row - 1] = 'X' #Indexing starts at zero, subtract one to set properly
+        firstRow[row - 1] = 'X' #Calculates the index in the array. -1 handles the zero based indexing 
         print()
-        print("\t\t\t**Seat was reserved successfully**")
+        print("\t**Seat was reserved successfully**")
+        print ("=" * 80)
         print()
         #row 1
     elif seatLetter == 'B': 
-        secondRow[row - 1] = 'X'
+        secondRow[row - 1] = 'X' #Calculates the index in the array. -1 handles the zero based indexing 
         print()
-        print("\t\t\t**Seat was reserved successfully**") #Print statements that show confirmation to the user 
+        print("\t**Seat was reserved successfully**") #Print statements that show confirmation to the user 
+        print ("=" * 80)
         print()
         #row 2
     elif seatLetter == 'C': 
-        thirdRow[row - 1] = 'X'
+        thirdRow[row - 1] = 'X' #Calculates the index in the array. -1 handles the zero based indexing 
         print()
-        print("\t\t\t**Seat was reserved successfully**")
+        print("\t**Seat was reserved successfully**") #Print statements that show confirmation to the user 
+        print ("=" * 80)
         print()
         #row 3
     elif seatLetter == 'D': 
-        fourthRow[row - 1] = 'X'
+        fourthRow[row - 1] = 'X' #Calculates the index in the array. -1 handles the zero based indexing 
         print()
-        print("\t\t\t**Seat was reserved successfully**")
+        print("\t**Seat was reserved successfully**") #Print statements that show confirmation to the user 
+        print ("=" * 80)
         print()
         #row 4
-    return 'reserved' 
+    return 'reserved' #Exits function, returns value
 
 #Function call that creates display for user 
 seatDisplay()
@@ -162,9 +171,14 @@ reserveCont = 'y'
 while reserveCont == 'y': 
     reservedSeat = 'taken' 
 
-    while reservedSeat == 'taken': 
-        reservedSeat = seatReserve()
+    while reservedSeat == 'taken': #Loop that brings user back into function after user picks a seat that is already taken
+        reservedSeat = seatReserve() #Function call 
 
     seatDisplay() #Function call that updates the display with user inputs added
 
     reserveCont = userContinue() #Function call that allows user to continously loop program
+
+else: #Exits loop, prints statement to notify user program has ended
+    print("\t\t\tProgam has ended. Thank you")
+    print ("=" * 80)
+    print()
