@@ -21,9 +21,9 @@ def loadDictonary(filename): #filename represents the path of the file being imp
     dictionary = {} #creates empty dictionary
     with open(filename) as csvfile: #Opening CSV file 
         file = csv.reader(csvfile)
-        for row in file: 
-            word = row[0] #Defining record 0 
-            definition = row[1] #Definting record 1 
+        for rec in file: 
+            word = rec[0] #Defining record 0 
+            definition = rec[1] #Definting record 1 
             dictionary[word] = definition #Updates dictionary by assigning definition to the 'word' key 
     return dictionary #Returns the value of the dictionary variable from function 
 
@@ -87,10 +87,10 @@ def exProgram(): #Exit the program
 #Function calls 
 
 filename = "text files/words.csv" #Call for filename 
-menu() #Call to display menu 
-dictionary = loadDictonary(filename) #Calling function (loadDictonary) , passing variable (filename) )
+menu() #Call for display menu 
+dictionary = loadDictonary(filename) #Calling function (loadDictonary) , passing data to variable (filename)
 
-#Loop 
+#LUser loop 
 choice = '' #Definies choice as a vairable 
 
 while choice != '4': #Loops user in program until they choose option 4 to exit program 
