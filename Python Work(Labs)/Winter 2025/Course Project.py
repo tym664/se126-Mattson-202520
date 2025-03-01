@@ -1,7 +1,7 @@
 #Tyler Mattson 
 #Course Project  
 #Section: SE126 - 202502 (Morning Class) 
-#Date: Febuary 18th 2025
+#Date: March 1rst 2025
 
 #VARIABLE DICTIONARY
 #======================================================================================================
@@ -98,7 +98,7 @@ def playBlackjack(deck, playerHand, dealerHand, balance, earnings):
 
 def nextRound(deck, balance, earnings): 
     if len(deck) <10: 
-        deck = loadDeck()
+        deck = ()
 
     playAgain = input("Play again? (y/n): ").strip().lower()
     if playAgain == "y": 
@@ -118,12 +118,4 @@ def saveEarnings(earnings):
 filename = "text files/cards.csv"
 deck = loadDeck(filename)
 
-def loadDeck():
-    if len(deck) >=3: 
-        playBlackjack(deck, [deck.pop(), deck.pop(), deck.pop()], dealerHand = [], balance = 100, earnings = [])
-
-       
-    
-
-
-
+playBlackjack(deck, [deck.pop(), deck.pop(), deck.pop()], dealerHand = [], balance = 100, earnings = [])
