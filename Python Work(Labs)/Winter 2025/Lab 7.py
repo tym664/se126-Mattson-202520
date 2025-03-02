@@ -5,13 +5,24 @@
 
 #VARIABLE DICTIONARY
 #======================================================================================================
-
+#loadDictonary() = Function method to load the CSV file 
+#filename = The name of the CSV file 
+#word = The word in the dictionary CSV file 
+#definition = The defintion of the word in the dictionary CSV file 
+#dictionary = Variable assigned to the dictionary
+#showWords() = Function method to show the words/defintions in the dictionary CSV file 
+#addWord() = Function method to add a word to the dictionary 
+#searchWord ()= Function method that allows user to search for a word in the ditctionary CSV file 
+#choice = User loop. Allows user to either exit or contiune using the program 
+#exProgram() = Function method that handles exiting the program 
+#menu() = Function method that display the menu choices (1-4) 
 #======================================================================================================
 
 #DESCRIPTION
 #=================================================================================================================================================
 #This program imports a pre-made dictionary from a CSV file 
-#The program consists of functions that handle data from a search menu 
+#The program consists of functions that handle data. Importing the CSV file, displaying search menu, 
+#adding a word/defintion, searching for a word, exiting the program, and displaying the file to the user. 
 #The user can chose to either Show the dictionary, Search for a key word, Add a word, or exit the program
 #=================================================================================================================================================
 
@@ -85,7 +96,6 @@ def exProgram(): #Exit the program
     print ("Exiting the program") 
 
 #Function calls 
-
 filename = "text files/words.csv" #Call for filename 
 menu() #Call for display menu 
 dictionary = loadDictonary(filename) #Calling function (loadDictonary) , passing data to variable (filename)
