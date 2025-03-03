@@ -38,7 +38,7 @@ os = []
 yr = []
 
 #Opening CSV file 
-with open("filehandling.csv") as csvfile:
+with open("text files/filehandling.csv") as csvfile:
 
     file = csv.reader(csvfile)
     
