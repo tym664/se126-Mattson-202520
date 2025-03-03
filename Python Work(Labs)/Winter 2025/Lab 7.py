@@ -39,7 +39,7 @@ def loadDictonary(filename): #filename represents the path of the file being imp
             word = rec[0] #Defining record 0 
             definition = rec[1] #Definting record 1 
             dictionary[word] = definition #Updates dictionary by assigning definition to the 'word' key 
-    return dictionary #Returns the value of the dictionary variable from function, makes this function recursion function
+    return dictionary #Returns the value of the dictionary variable from function, makes this function recursion function 
 
 #Function for menu 
 def menu(): #Shows menu (1-4) 
