@@ -29,6 +29,7 @@ def loadDeck(filename): #filename represents the path of the file being imported
        
 
 def deckCreate(card, role, aceDec): #Function to determine the numeric value of the card based on the face of the card 
+    #card faces  --> (Jack, Queen, King and Ace)
     value = card[0] #Imports the value of the card from the CSV file 
     if value in ["Jack", "Queen", "King"]: 
         return 10 #Jack, Queen and King cards are worth 10 points 
@@ -54,11 +55,15 @@ def calcScore(hand, role, aceDec): #Function to determine the total score of the
 
 def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, aceDec): #Function to run the game of BlackJack 
     #Variables are passed through to keep track and reload the deck if needed. 
-    print(f"Your hand: {playerHand} | Score: {calcScore(playerHand, 'player', aceDec)}")# Displays player's hand and score 
-    print(f"Dealers hand : {dealerHand} | Score: {calcScore(dealerHand, 'dealer', aceDec)}")#Displays dealer's hand and score 
+    print(f"Player hand: {playerHand}") #Displays players hand 
+    print(f"Player Card Total: {calcScore(playerHand, 'player', aceDec)}")# Displays player's score 
+    print("=" * 20)#Formating 
+    print(f"Dealer's hand : {dealerHand}") #Displays dealer's hand 
+    print(f"Dealer's Card Total : {calcScore(dealerHand, 'dealer', aceDec)}")#Displays dealer's score 
+    print("=" * 20)#Formating 
     if calcScore(playerHand, 'player', aceDec) == 21: 
         print("BlackJack, you win!") #Player wins 
-        balance += 50 #Player earns 50 credits 
+        balance += 550 #Player earns 550 credits 
         earnings.append(balance) #Updates earnings history 
         return nextRound(deck, balance, earnings, filename) #Program moves onto the next round 
     action = input ("Hit or Stand? (h/s): ").strip().lower() #Asks the player what they want their action to be 
@@ -66,10 +71,12 @@ def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, ace
         if not deck: 
             deck = loadDeck(filename) #Checks if the deck is empty before populating 
         playerHand.append(deck.pop()) #Adds a new card to players hand 
-        print(f"Your hand: {playerHand} | Score: {calcScore(playerHand, 'player', aceDec)}") #Shows player's new hand 
+        print(f"Player's hand: {playerHand}") 
+        print(f"Player's Score: {calcScore(playerHand, 'player', aceDec)}") #Shows player's new hand 
+        print("=" * 20) #Formatting 
         if calcScore(playerHand, 'player', aceDec) > 21: 
-            print("Bust")#Player looses if score is higher than 21 
-            balance -= 10 #Player looses 10 credits 
+            print("BUST")#Player looses if score is higher than 21 
+            balance -= 350 #Player looses 350 credits 
             return nextRound(deck, balance, earnings, filename) #Program moves onto the next round 
         action = input("Hit or Stand? (h/s): ").strip().lower() #Program asks player for next input
 
@@ -77,15 +84,16 @@ def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, ace
         if not deck: #Checks if deck is empty before populating 
             deck = loadDeck(filename) #Checks if the deck is empty before populating 
         dealerHand.append(deck.pop()) #Adds new cards to dealers hand
-    print(f"Final Dealer's hand: {dealerHand} | Final Dealer's Score: {calcScore(dealerHand, 'dealer', aceDec)}") #Shows dealer's final hands and score 
+    print(f"Final Dealer's hand: {dealerHand}")#Shows dealer's final hand 
+    print(f"Final Dealer's Score: {calcScore(dealerHand, 'dealer', aceDec)}") #Shows dealer's final score 
     dealerBust = calcScore(dealerHand, 'dealer', aceDec) > 21 
     playerWin = calcScore(playerHand, 'player', aceDec) > calcScore (dealerHand, 'dealer', aceDec)
     if dealerBust or playerWin: 
-        print("You win")
-        balance += 20 #Player wins 20 credits 
+        print("YOU WIN")
+        balance += 200 #Player wins 200 credits 
     else: 
         print("You lose")
-        balance -= 10 #Player looses 10 credits  
+        balance -= 400 #Player looses 400 credits  
     earnings.append(balance) #Updates earnings history 
     return nextRound(deck, balance, earnings, filename) #Program moves onto the next round 
 
@@ -96,6 +104,7 @@ def nextRound(deck, balance, earnings, filename): #Function to handle if the pla
         deck = loadDeck(filename) #Re-calling function that loads the CSV file 
 
     playAgain = input("Play again? (y/n): ").strip().lower() 
+    print()#Formatting 
     if playAgain == "y": #Staring next round 
         if len(deck) < 4: 
             deck = loadDeck(filename) #Ensures there are 4 cards before starting the program 
@@ -107,7 +116,9 @@ def nextRound(deck, balance, earnings, filename): #Function to handle if the pla
         return playBlackjack(deck, [deck.pop(), deck.pop()], [deck.pop(), deck.pop()], balance, earnings, filename, aceDec)#Function to play BlackJack is being called 
     else: 
         saveEarnings(earnings) #Saves the players earnings through-out the game 
-        print("Game Over. Your final balance is:", balance) #Displays the final balance of the players credits 
+        print("Game Over") 
+        print("Your final balance is:", balance) #Calls balance list to update balance
+        #Displays the final balance of the players credits
 
 
 def saveEarnings(earnings): #Function to write/save players earings into a new CSV file 
@@ -124,8 +135,8 @@ deck = loadDeck(filename) #Function call to load and shuffle the deck. Data is p
 if len(deck) < 4: #Ensures there are enough cards availiable before starting the game 
     deck = loadDeck(filename)
 aceDec = {} #Stores the player's Ace decision 
-#Starts the game. Player recieves a balance of 100 credits and the players earnings history is not saved. 
-playBlackjack(deck, [deck.pop(), deck.pop()], [deck.pop(), deck.pop()], 100, [], filename, aceDec) 
+#Starts the game. Player recieves a balance of 600 credits and the players earnings history is not saved. 
+playBlackjack(deck, [deck.pop(), deck.pop()], [deck.pop(), deck.pop()], 600, [], filename, aceDec) 
 #100 is the amount of credits the player will recieve 
 #[] is an empty list to store the players earnings from each round 
 #aceDec is used to track player ace decision 
