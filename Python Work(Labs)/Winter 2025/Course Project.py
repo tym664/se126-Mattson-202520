@@ -10,12 +10,20 @@
 
 #DESCRIPTION
 #=================================================================================================================================================
-
+#This program is a game of BlackJack 
+#The program utilizes two imports. Import CSV to import the CSV file that contains the card number, the card face, and the color of the card. 
+#The program utilizes the random import to randomize the cards given to the player and dealer. The color and card faces are tied together.
+#Red cards will only appear as either a Diamond or Hearts, but the order in which they appear will be random
+#Black cards will only appear as either a Spade or Club, but the order in which they appear will be random
+#The user has the option to pick the Ace as either 1 or 11. The user will be given a choice when the Ace card is selected by the program. 
+#What-ever the user chooses (1 or 11) the decision the player made will follow the player throught their turn until the player or dealer bust (aceDec)
+#This program uses various function, the functions have various parameters that hold data through other functions
+#The parameters can change depending on the user input (Which Ace number the user picks, how much the player wins or looses)
+#After the program is finshed, the program will create a CSV file with the players winngs from playing through BlackJack 
 #=================================================================================================================================================
 
-import random 
-import csv
-
+import random #Imports random function to randomize cards given to player or dealer 
+import csv #Imports CSV file with card data 
 
 def loadDeck(filename): #filename represents the path of the file being imported 
     deck = [] #creates empty list for storing the deck 
@@ -100,7 +108,7 @@ def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, ace
 
 def nextRound(deck, balance, earnings, filename): #Function to handle if the player wants to play again or exit program 
     if len(deck) <10: #Reloads the deck if few too many cards remain 
-        print("Reloading deck....")
+        print("Reloading deck....")#Notifying user that the cards are re-shuffeling 
         deck = loadDeck(filename) #Re-calling function that loads the CSV file 
 
     playAgain = input("Play again? (y/n): ").strip().lower() 
@@ -137,7 +145,7 @@ if len(deck) < 4: #Ensures there are enough cards availiable before starting the
 aceDec = {} #Stores the player's Ace decision 
 #Starts the game. Player recieves a balance of 600 credits and the players earnings history is not saved. 
 playBlackjack(deck, [deck.pop(), deck.pop()], [deck.pop(), deck.pop()], 600, [], filename, aceDec) 
-#100 is the amount of credits the player will recieve 
+#600 is the amount of credits the player will recieve 
 #[] is an empty list to store the players earnings from each round 
 #aceDec is used to track player ace decision 
 #filename variable holds the CSV path, will reload the deck if cards get low 
