@@ -162,7 +162,8 @@ def nextRound(deck, balance, earnings, filename): #Function to handle if the pla
     playAgain = input("\tPlay again? (y/n): ").strip().lower()#User input
     print()#Formatting 
     if playAgain == "y": #Staring next round 
-        screenClear()
+        screenClear() #Used to call the function that clears the screen in terminal 
+        
         if len(deck) < 4: #Checks to make sure there are atleast 4 cards before staring round 
             deck = loadDeck(filename) #if there are not 4 cards, program will reload CSV file (filename) with the loadDeck function 
 
