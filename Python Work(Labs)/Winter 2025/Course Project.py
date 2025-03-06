@@ -37,6 +37,7 @@ def loadDeck(filename): #filename represents the path of the file being imported
     random.shuffle(deck) #Shuffles the deck to randomize the order of the cards 
     return deck #Returns shuffled deck 
 
+
 def screenClear(): #This function clears the screen for the user if the user wants to contiune, used to make display cleaner
     os.system('cls' if os.name == 'nt' else 'clear') #This is to handle different operating systems terminals (Windows/Mac)
     #Program was made on MacOS, added Windows CLS function for terminal
