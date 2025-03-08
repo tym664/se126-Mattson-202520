@@ -73,27 +73,27 @@ def calcScore(hand, role, aceDec): #Function to determine the total score of the
 
 def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, aceDec): #Function to run the game of BlackJack 
     #Variables are passed through to keep track and reload the deck if needed. 
-    print("=" * 60)
-    print()
+    print("=" * 60)#Formatting 
+    print()#Formatting 
     print(f"\tPlayer's hand:", *[f"{card[0]} of {card[1]}" for card in playerHand]) #Displays players hand 
     print() #Formatting 
     #Formatting is used to get rid of brackets when players hand is printed 
     #card[0] -> Card face(Ace, King, Queen, Jack)
     #card[1] -> Card suit (Spades, heart, Diamond, Club)
-    print(f"\tPlayer Card Total: {calcScore(playerHand, 'player', aceDec)}")# Displays player's score 
-    print()
+    print(f"\tPlayer Card Total: {calcScore(playerHand, 'player', aceDec)}")# Displays player's score
+
+    print()#Formatting 
     print("=" * 60)#Formating, adds lines to break up info on display 
     print(f"\tDealer's hand:", *[f"{card[0]} of {card[1]}" for card in dealerHand]) #Displays dealer's hand 
     #Formatting is used here to get rid of brackets when code was printed 
     #card[0] -> Card face(Ace, King, Queen, Jack)
     #card[1] -> Card suit (Spades, heart, Diamond, Club)
-
     print()#Formatting
     print(f"\tDealer's Card Total : {calcScore(dealerHand, 'dealer', aceDec)}")#Displays dealer's score 
     print("=" * 60)#Formating, adds lines to break up info on display 
     print()#Formatting
 
-    if calcScore(playerHand, 'player', aceDec) == 21: 
+    if calcScore(playerHand, 'player', aceDec) == 21: #if statement used to calculate score of players hand 
         print("\tBlackJack, you win!") #Player wins 
         balance += 550 #Player earns 550 credits 
         earnings.append(balance) #Updates earnings history 
@@ -125,7 +125,7 @@ def playBlackjack(deck, playerHand, dealerHand, balance, earnings, filename, ace
             return nextRound(deck, balance, earnings, filename) #Program moves onto the next round 
         
         action = input("\tHit or Stand? (h/s): ").strip().lower() #Program asks player for next input (hit or stand)
-        print()
+        print()#Formatting 
     while calcScore (dealerHand, 'dealer', aceDec) < 17: #Dealer draws cards untill score is less than 17 
         if not deck: #Checks if deck is empty before populating 
             deck = loadDeck(filename) #If deck is empty, program will populate by calling the loadDeck function, program will pull data from CSV file again 
@@ -202,5 +202,5 @@ aceDec = {} #Stores the player's Ace decision
 playBlackjack(deck, [deck.pop(), deck.pop()], [deck.pop(), deck.pop()], 600, [], filename, aceDec) 
 #600 is the amount of credits the player will recieve 
 #[] is an empty list to store the players earnings from each round 
-#aceDec is used to track player ace decision 
-#filename variable holds the CSV path, will reload the deck if cards get low 
+#aceDec is used to track player ace decision through the players turn 
+#filename variable holds the CSV path, will reload the deck if cards get low, or if player starts a new game after winning or losing 
