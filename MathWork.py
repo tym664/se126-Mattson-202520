@@ -35,7 +35,6 @@ def slopeCalc(): #Function used to calculate slope
         showWork( "Slope", steps)
         print(f"Slope: {slope}")
 #=======================================================================================================================================
-
 #Function to allow user to contiune using program
 #=======================================================================================================================================
 def userContiune():
@@ -45,7 +44,6 @@ def userContiune():
     else:
         print("Loser") 
         
-    
 #Function that displays menu, allowing the user to decide what they want the program to do
 #=======================================================================================================================================
 def showMenu():#Function for showing the menu to the user 
