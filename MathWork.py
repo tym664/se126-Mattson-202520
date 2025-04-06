@@ -5,6 +5,7 @@
 #=======================================================================================================================================
 
 #Function for program to show work for equations
+#=======================================================================================================================================
 def showWork (topics, steps): 
     print("Showing Work")#Prints to user that function is showing work
     print("=" * 20)#Formatting
@@ -66,4 +67,4 @@ def showMenu():#Function for showing the menu to the user
         print("Thank you")
         return   
 
-showMenu()#Redirects the program back to show menu, completing loop 
+showMenu()#Redirects the program back to show the menu to the user 
