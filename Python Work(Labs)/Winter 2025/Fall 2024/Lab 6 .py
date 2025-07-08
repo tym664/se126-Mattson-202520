@@ -91,37 +91,4 @@ while any_more == "y" :
 
         else:
             print ("!!Invalid Input. Please choose 1, 2, 3, 4 or 5!!")
-            print ()
-            
-
-        
-     
-           
-
-        
-
-        
-
-       
-            
-                
-
-
-                
-                
-
-
-                
-                
-        
-
-    
-
-        
-
-    
-
-
-
-    
-       
+            print ()               

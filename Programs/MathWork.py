@@ -9,7 +9,7 @@
 def showWork (topics, steps): 
     print("Showing Work")#Prints to user that function is showing work
     print("=" * 20)#Formatting
-    print(f"Topics: -> {topics}") #Prints topic. Topic = what math subject is being calculated (Slope, Pythagorean therom etc)
+    print(f"Topics: --> {topics}") #Prints topic. Topic = what math subject is being calculated (Slope, Pythagorean therom etc)
     for step in steps:#For loop that handles the steps in the equation for any given function. Will show all steps program took to solve equation and then display them to user. 
         print("" + step) #Used to correctly lable out which steps (Step 1, Step 2 etc)
     print("=" * 20)
