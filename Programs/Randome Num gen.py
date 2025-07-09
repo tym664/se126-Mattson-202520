@@ -1,6 +1,8 @@
 #Description:
-#This program just generates random numbers
+#This program generates random numbers
+#The user inputs lowest number and hightest number of their choice, then the program generates a random number betwee the two given numbers
 #After the random numbers are generated, the program adds the numbers to a CSV file
+#The program will keep adding numbers to CSV file, if CSV file is deleted a new one will be created, but numbers will not be saved
 #=======================================================================================================================================
 
 import random #imports the random library into python 
@@ -8,7 +10,9 @@ import csv#Imports CSV library into python
 #=======================================================================================================================================
 def randNum():#Function for generating random numbers with CSV file writer included
     lower = int(input("Enter the lower number: "))#User inputs lower number
+    print()
     upper = int(input("Enter the highest nubmer: "))#User inputs the highest number 
+    print()
     randNumber = random.randint(lower, upper)
     print(f"The random number between {lower} and {upper} is: {randNumber}") 
     with open('randomNumbers.csv', mode='a', newline='') as file:#Opens a CSV file 
@@ -20,4 +24,8 @@ contiuneProgram = "y"
 while contiuneProgram == "y":
     randNum()#Call back to the function to put user in loop 
     contiuneProgram = input("Do you wish to find another number? (y/n)")
+print("---------------------------")
+print()
 print("Thank you for using program")
+print("---------------------------")
+print()
