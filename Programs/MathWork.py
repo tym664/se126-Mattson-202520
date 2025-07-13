@@ -2,8 +2,8 @@
 #Description:
 #This code is to be used for math homework. More equations formulas will be added in the form of functions 
 #User will choose from a menu the desired equation calculator, input values, and the program will show work and correct answer 
+#The calculator is called TronicCalculator®
 #=======================================================================================================================================
-
 #Function for program to show work for equations
 #=======================================================================================================================================
 def showWork (topics, steps): 
@@ -34,13 +34,11 @@ def slopeCalc(): #Function used to calculate slope
         steps.append(f"Slope: = {slope}")
         showWork( "Slope", steps)
         print(f"Slope: {slope}")
-#=======================================================================================================================================
-     
 
 #Function to allow user to contiune using program
 #=======================================================================================================================================
 def userContiune():
-    answer = input("Do you want to solve another problem? (y\n): ").lower() 
+    answer = input("Do you want to solve another problem? (y/n): ").lower() 
     if answer == "y":
         showMenu()
     else:
@@ -49,7 +47,7 @@ def userContiune():
 #Function that displays menu, allowing the user to decide what they want the program to do
 #=======================================================================================================================================
 def showMenu():#Function for showing the menu to the user 
-    print("Math helper")
+    print("TronicCalculator®")
     print("=" *20)
     print("1. Slope")
     print("2. Place holder")
@@ -64,7 +62,7 @@ def showMenu():#Function for showing the menu to the user
         print("Option not available yet")
 
     elif choice == "3": 
-        print("Thank you")
+        print("Thank you for using TronicCalculator®")
         return   
 
 showMenu()#Redirects the program back to show the menu to the user 
